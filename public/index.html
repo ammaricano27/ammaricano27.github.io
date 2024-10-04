@@ -1,0 +1,877 @@
+<!DOCTYPE html>
+<html lang="en" class="">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Belajar Tailwind</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/custom.css">
+    <script src="js/animate.js"></script>
+    <script src="js/scroll.js"></script>
+    <script src="js/theme.js"></script>
+    <script type="module" src="js/script.js"></script>
+    <style type="text/tailwindcss">
+        @keyframes animateParticle {
+    0% {
+        transform: translateY(0)
+    }
+
+    to {
+        transform: translateY(-2000px)
+    }
+}
+
+.animate {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 1s ease,transform 1s ease
+}
+
+.animate.show {
+    opacity: 1;
+    transform: translateY(0)
+}
+
+article img {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    display: block;
+    margin: 0 auto
+}
+
+#twinkle-star.template {
+    position: absolute;
+    left: -100%
+}
+
+@keyframes twinkle {
+    0% {
+        opacity: 0;
+        transform: rotate(0)
+    }
+
+    50% {
+        opacity: 1;
+        transform: rotate(180deg)
+    }
+
+    to {
+        opacity: 0;
+        transform: rotate(360deg)
+    }
+}
+
+#twinkle-star.twinkle {
+    animation: twinkle 2s ease-in-out forwards
+}
+
+#meteors .shower {
+    position: absolute;
+    inset: 0 0 0 50%;
+    --tw-translate-x: -50%;
+    transform: translate(var(--tw-translate-x),var(--tw-translate-y)) rotate(var(--tw-rotate)) skew(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+    aspect-ratio: 1 / 1;
+    width: 100vw
+}
+
+@keyframes meteor {
+    0% {
+        opacity: 0;
+        transform: translateY(200%)
+    }
+
+    50% {
+        opacity: 1
+    }
+
+    to {
+        opacity: 0;
+        transform: translateY(0)
+    }
+}
+
+#meteors .meteor {
+    animation: meteor 3s ease-in-out forwards;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    height: 75vh;
+    width: 1px;
+    background-image: linear-gradient(to bottom,var(--tw-gradient-stops));
+    --tw-gradient-from: #fff var(--tw-gradient-from-position);
+    --tw-gradient-to: rgb(255 255 255 / 0) var(--tw-gradient-to-position);
+    --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+    --tw-gradient-to: transparent var(--tw-gradient-to-position)
+}
+
+#meteors .shower.ur {
+    --tw-rotate: 45deg;
+    transform: translate(var(--tw-translate-x),var(--tw-translate-y)) rotate(var(--tw-rotate)) skew(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))
+}
+
+#meteors .shower.dr {
+    --tw-rotate: 135deg;
+    transform: translate(var(--tw-translate-x),var(--tw-translate-y)) rotate(var(--tw-rotate)) skew(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))
+}
+
+#meteors .shower.dl {
+    --tw-rotate: 225deg;
+    transform: translate(var(--tw-translate-x),var(--tw-translate-y)) rotate(var(--tw-rotate)) skew(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))
+}
+
+#meteors .shower.ul {
+    --tw-rotate: 315deg;
+    transform: translate(var(--tw-translate-x),var(--tw-translate-y)) rotate(var(--tw-rotate)) skew(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))
+}
+
+
+#header-drawer-button[data-astro-cid-3ef6ksr2]>#drawer-open[data-astro-cid-3ef6ksr2] {
+    display: block
+}
+
+#header-drawer-button[data-astro-cid-3ef6ksr2]>#drawer-close[data-astro-cid-3ef6ksr2] {
+    display: none
+}
+
+#header-drawer-button[data-astro-cid-3ef6ksr2].open>#drawer-open[data-astro-cid-3ef6ksr2] {
+    display: none
+}
+
+#header-drawer-button[data-astro-cid-3ef6ksr2].open>#drawer-close[data-astro-cid-3ef6ksr2] {
+    display: block
+}
+
+#drawer[data-astro-cid-hxtyo74s].open {
+    height: 100%
+}
+
+    </style>
+</head>
+
+<body>
+    <header id="header" class="fixed top-0 w-full h-16 z-50" data-astro-cid-3ef6ksr2>
+        <div class="w-full h-full mx-auto px-5 max-w-screen-md">
+            <div class="relative h-full w-full" data-astro-cid-3ef6ksr2>
+                <div class="absolute left-0 top-1/2 -translate-y-1/2 flex gap-1 font-semibold" data-astro-cid-3ef6ksr2>
+                    <a href="/"
+                        class="flex gap-1 text-current hover:text-black dark:hover:text-white transition-colors duration-300 ease-in-out"
+                        data-astro-cid-3ef6ksr2>
+                        <!-- <svg class="size-6 fill-current">
+        <use href="/brand.svg#brand"></use>
+      </svg> -->
+                        <div data-astro-cid-3ef6ksr2 class="dark:text-white">Ammar Dev </div>
+                    </a>
+                </div>
+                <div class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2" data-astro-cid-3ef6ksr2>
+                    <nav class="hidden md:flex items-center justify-center text-sm gap-4" data-astro-cid-3ef6ksr2>
+                        <a href="/"
+                            class="h-8 rounded-full px-3 flex items-center justify-center transition-colors duration-300 ease-in-out bg-black dark:bg-white text-white dark:text-black"
+                            data-astro-cid-3ef6ksr2>Home </a>
+                        <a href="./blog/index.html"
+                            class="h-8 rounded-full px-3 text-current flex items-center justify-center transition-colors duration-300 ease-in-out hover:bg-black/5 dark:hover:bg-white/20 hover:text-black dark:hover:text-white dark:text-white"
+                            data-astro-cid-3ef6ksr2>Blog </a>
+                        <a href="./projects/index.html"
+                            class="h-8 rounded-full px-3 text-current flex items-center justify-center transition-colors duration-300 ease-in-out hover:bg-black/5 dark:hover:bg-white/20 hover:text-black dark:hover:text-white dark:text-white"
+                            data-astro-cid-3ef6ksr2>Projects </a>
+                    </nav>
+                </div>
+                <div class="buttons absolute right-0 top-1/2 -translate-y-1/2 flex gap-1" data-astro-cid-3ef6ksr2>
+                    <a href="https://discord.gg/NAuwJc9Zk8" target="_blank" aria-label="Discord Channel"
+                        class="hidden md:flex size-9 rounded-full p-2 items-center justify-center bg-transparent hover:bg-black/5 dark:hover:bg-white/20 stroke-current hover:stroke-black hover:dark:stroke-white border border-black/10 dark:border-white/25 transition-colors duration-300 ease-in-out"
+                        data-astro-cid-3ef6ksr2>
+                        <svg class="size-full dark:stroke-white" data-astro-cid-3ef6ksr2>
+                            <use href="./svg/ui.svg#rss" data-astro-cid-3ef6ksr2></use>
+                        </svg>
+                    </a>
+                    <button id="drawer-theme-button" aria-label="Toggle light and dark theme" class="size-9 rounded-full p-2 items-center justify-center bg-transparent hover:bg-black/5 dark:hover:bg-white/20 stroke-current dark:stroke-white hover:stroke-black hover:dark:stroke-white border border-black/10 dark:border-white/25 transition-colors duration-300 ease-in-out" data-astro-cid-hxtyo74s>
+                        <svg class="block dark:hidden size-full" data-astro-cid-hxtyo74s>
+                            <use href="./svg/ui.svg#sun" data-astro-cid-hxtyo74s></use>
+                        </svg>
+                        <svg class="hidden dark:block size-full" data-astro-cid-hxtyo74s>
+                            <use href="./svg/ui.svg#moon" data-astro-cid-hxtyo74s></use>
+                        </svg>
+                    </button>
+                    <button id="header-drawer-button" aria-label="Toggle drawer open and closed"
+                        class="flex md:hidden size-9 rounded-full p-2 items-center justify-center bg-transparent hover:bg-black/5 dark:hover:bg-white/20 stroke-current hover:stroke-black hover:dark:stroke-white dark:stroke-white border border-black/10 dark:border-white/25 transition-colors duration-300 ease-in-out"
+                        data-astro-cid-3ef6ksr2>
+                        <svg id="drawer-open" class="size-full" data-astro-cid-3ef6ksr2>
+                            <use href="./svg/ui.svg#menu" data-astro-cid-3ef6ksr2></use>
+                        </svg>
+                        <svg id="drawer-close" class="size-full" data-astro-cid-3ef6ksr2>
+                            <use href="./svg/ui.svg#x" data-astro-cid-3ef6ksr2></use>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+    <script>
+        function toggleDrawer() {
+            const drawer = document.getElementById("drawer")
+            const drawerButton = document.getElementById("header-drawer-button")
+            drawer?.classList.toggle("open")
+            drawerButton?.classList.toggle("open")
+        }
+
+        function initializeDrawerButton() {
+            const drawerButton = document.getElementById("header-drawer-button")
+            drawerButton?.addEventListener("click", toggleDrawer)
+        }
+
+        document.addEventListener("astro:after-swap", initializeDrawerButton)
+        initializeDrawerButton()
+    </script>
+    <div id="drawer"
+        class="fixed inset-0 h-0 z-40 overflow-hidden flex flex-col items-center justify-center md:hidden bg-neutral-100 dark:bg-neutral-900 transition-[height] duration-300 ease-in-out"
+        data-astro-cid-hxtyo74s>
+        <nav class="flex flex-col items-center space-y-2" data-astro-cid-hxtyo74s>
+            <a href="/"
+                class="flex items-center justify-center px-3 py-1 rounded-full hover:text-black dark:hover:text-white hover:bg-black/5 dark:hover:bg-white/20 transition-colors duration-300 ease-in-out pointer-events-none bg-black dark:bg-white text-white dark:text-black"
+                data-astro-cid-hxtyo74s>Home </a>
+            <a href="./blog/index.html"
+                class="flex items-center justify-center px-3 py-1 rounded-full text-current hover:text-blackdark:hover:text-white hover:bg-black/5 dark:hover:bg-white/20 transition-colors duration-300 ease-in-out dark:text-white"
+                data-astro-cid-hxtyo74s>Blog </a>
+            <a href="./projects/index.html"
+                class="flex items-center justify-center px-3 py-1 rounded-full text-current hover:text-black dark:hover:text-white hover:bg-black/5 dark:hover:bg-white/20 transition-colors duration-300 ease-in-out dark:text-white"
+                data-astro-cid-hxtyo74s>Projects </a>
+        </nav>
+        <div class="flex gap-1 mt-5" data-astro-cid-hxtyo74s>
+            <a href="https://discord.gg/NAuwJc9Zk8" target="_blank" aria-label="Discord Channel"
+                class="size-9 rounded-full p-2 items-center justify-center bg-transparent hover:bg-black/5 dark:hover:bg-white/20 stroke-current hover:stroke-black hover:dark:stroke-white dark:stroke-white border border-black/10 dark:border-white/25 transition-colors duration-300 ease-in-out"
+                data-astro-cid-hxtyo74s>
+                <svg class="size-full" data-astro-cid-hxtyo74s>
+                    <use href="./svg/ui.svg#rss" data-astro-cid-hxtyo74s></use>
+                </svg>
+            </a>
+            <button id="drawer-theme-button" aria-label="Toggle light and dark theme" class="size-9 rounded-full p-2 items-center justify-center bg-transparent hover:bg-black/5 dark:hover:bg-white/20 stroke-current dark:stroke-white hover:stroke-black hover:dark:stroke-white border border-black/10 dark:border-white/25 transition-colors duration-300 ease-in-out" data-astro-cid-hxtyo74s>
+                <svg class="block dark:hidden size-full" data-astro-cid-hxtyo74s>
+                    <use href="./svg/ui.svg#sun" data-astro-cid-hxtyo74s></use>
+                </svg>
+                <svg class="hidden dark:block size-full" data-astro-cid-hxtyo74s>
+                    <use href="./svg/ui.svg#moon" data-astro-cid-hxtyo74s></use>
+                </svg>
+            </button>
+        </div>
+    </div>
+    <main>
+        <div class="absolute inset-0 block dark:hidden">
+            <div id="particles1" class="fixed inset-0"></div>
+            <div id="particles2" class="fixed inset-0"></div>
+            <div id="particles3" class="fixed inset-0"></div>
+        </div>
+        <div class="absolute inset-0 bg-black hidden dark:block">
+            <div id="stars1" class="fixed inset-0"></div>
+            <div id="stars2" class="fixed inset-0"></div>
+            <div id="stars3" class="fixed inset-0"></div>
+        </div>
+        <div id="galaxy" class="fixed inset-0">
+            <div class="hidden dark:block">
+                <svg id="twinkle-star" class="template" width="149" height="149" viewBox="0 0 149 149" fill="none"
+                    xmlns="http://www.w3.org/2000/svg" class="absolute left-full animate-twinkle">
+                    <circle cx="74" cy="74" r="11" fill="white"></circle>
+                    <rect y="141.421" width="200" height="10" transform="rotate(-45 0 141.421)"
+                        fill="url(#paint0_linear_4_2)"></rect>
+                    <rect x="7.07107" width="200" height="10" transform="rotate(45 7.07107 0)"
+                        fill="url(#paint1_linear_4_2)"></rect>
+                    <defs>
+                        <linearGradient id="paint0_linear_4_2" x1="0" y1="146.421" x2="200" y2="146.421"
+                            gradientUnits="userSpaceOnUse">
+                            <stop stop-color="#1E1E1E"></stop>
+                            <stop offset="0.445" stop-color="white"></stop>
+                            <stop offset="0.58721" stop-color="white"></stop>
+                            <stop offset="1" stop-color="#1E1E1E"></stop>
+                        </linearGradient>
+                        <linearGradient id="paint1_linear_4_2" x1="7.07107" y1="5" x2="207.071" y2="5"
+                            gradientUnits="userSpaceOnUse">
+                            <stop stop-color="#1E1E1E"></stop>
+                            <stop offset="0.42" stop-color="white"></stop>
+                            <stop offset="0.555" stop-color="white"></stop>
+                            <stop offset="1" stop-color="#1E1E1E"></stop>
+                        </linearGradient>
+                    </defs>
+                </svg>
+                <script>
+                    // Generate a twinkle star and append it to the galaxy, remove it after animation.
+                    function generateTwinkleStar() {
+                        const twinkleStarTemplate = document.getElementById("twinkle-star")
+                        if (!twinkleStarTemplate) {
+                            return;
+                        }
+                        // Clone the twinkle star template and set its attributes.
+                        const twinkleStar = twinkleStarTemplate.cloneNode(true);
+                        twinkleStar.style.position = "absolute";
+                        twinkleStar.style.left = Math.floor(Math.random() * window.innerWidth) + "px";
+                        twinkleStar.style.top = Math.floor(Math.random() * (window.innerHeight / 3)) + "px";
+                        twinkleStar.style.width = window.innerWidth < 768 ? Math.floor(Math.random() * (15 - 7.5 + 1) + 7.5) : Math.floor(Math.random() * (30 - 15 + 1) + 15) + "px";
+                        twinkleStar.style.height = twinkleStar.style.width;
+                        twinkleStar.classList.add("twinkle");
+                        document.getElementById("galaxy").appendChild(twinkleStar);
+
+                        // Remove the twinkle star after the animation is completed.
+                        setTimeout(() => {
+                            twinkleStar.remove();
+                        }
+                            , 2500);
+                    }
+
+                    setInterval(generateTwinkleStar, 5000);
+                </script>
+                <div id="meteors">
+                    <!-- rotations defined in base.css & tailwind.config.mjs -->
+                    <div class="shower ur"></div>
+                    <div class="shower dr"></div>
+                    <div class="shower dl"></div>
+                    <div class="shower ul"></div>
+                </div>
+            </div>
+        </div>
+        <script src="js/bg.js"></script>
+        <!-- Hero Section Start -->
+        <section id="home" class="relative h-screen w-full animate">
+            <div class="animate absolute inset-0 top-1/4 overflow-hidden show">
+                <div
+                    class="absolute top-0 left-1/2 -translate-x-1/2 w-[250vw] min-h-[100vh] aspect-square rounded-full p-[1px] bg-gradient-to-b from-black/25 dark:from-white/75 from-0% to-transparent to-5%">
+                    <div
+                        class="w-full h-full bg-white dark:bg-black rounded-full p-[1px] overflow-hidden flex justify-center">
+                        <div class="w-full h-20 rounded-full bg-neutral-900/25 dark:bg-white/25 blur-3xl"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="animate absolute h-full w-full flex items-center justify-center show">
+                <div class="relative w-full h-full flex items-center justify-center">
+                    <div class="p-5 text-center">
+                        <p class="animate text-lg md:text-xl lg:text-2xl font-semibold opacity-75 dark:text-white">
+                            Hello, I am Ammar
+                        </p>
+                        <p
+                            class="animate text-2xl md:text-3xl lg:text-4xl font-bold uppercase text-black dark:text-white">
+                            FRONTEND DEVELOPER</p>
+                        <p class="animate text-sm md:text-base lg:text-lg opacity-75 dark:text-white">Currently
+                            designing products for
+                            humans.</p>
+                        <div class="animate flex flex-wrap gap-4 justify-center mt-5">
+                            <a href="mailto:ammarithm@gmail.com"
+                                class="py-2 px-4 rounded truncate text-xs md:text-sm lg:text-base bg-black dark:bg-white text-white dark:text-black hover:opacity-75 blend">HIRE
+                                ME</a>
+                            <a href="./projects/index.html"
+                                class="py-2 px-4 truncate rounded text-xs md:text-sm lg:text-base border border-black/25 dark:border-white/25 hover:bg-black/5 hover:dark:bg-white/15 blend dark:text-white">VIEW
+                                MY PROJECT</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Hero Section End -->
+        <div class="relative bg-white dark:bg-black">
+            <div class="mx-auto max-w-screen-sm p-5 space-y-24 pb-16">
+                <!-- About Section -->
+                <section class="animate show animate">
+                    <article>
+                        <p class="mb-4 dark:text-white animate">I'm a web developer from Indonesia.</p>
+                        <p class="dark:text-white animate">I have a passion for web development and I love to learn new things.
+                            I'm also a tech
+                            enthusiast and I love to share my knowledge with others.</p>
+                    </article>
+                </section>
+                <!-- Blog Preview Section -->
+                <section class="animate">
+                    <div class="space-y-4">
+                        <div class="flex justify-between">
+                            <p class="font-semibold text-black dark:text-white">Recent posts
+                            </p>
+                            <a href="./blog/index.html"
+                                class="w-fit col-span-3 group flex gap-1 items-center underline decoration-[.5px] decoration-black/25 dark:decoration-white/50 hover:decoration-black dark:hover:decoration-white text-black dark:text-white underline-offset-2 blend">
+                                <span
+                                    class="text-black/75 dark:text-white/75 group-hover:text-black group-hover:dark:text-white blend">All
+                                    posts
+                                </span>
+                            </a>
+                        </div>
+                        <ul class="space-y-4">
+                            <li>
+                                <a href="#"
+                                    class="group p-4 gap-3 flex items-center border rounded-lg hover:bg-black/5 hover:dark:bg-white/10 border-black/15 dark:border-white/20 transition-colors duration-300 ease-in-out">
+                                    <div class="w-full group-hover:text-black group-hover:dark:text-white blend">
+                                        <div class="flex flex-wrap items-center gap-2">
+                                            <!--$-->
+                                            <!--/-->
+                                            <div class="text-sm uppercase dark:text-white">Aug 27, 2024</div>
+                                        </div>
+                                        <div class="font-semibold mt-3 text-black dark:text-white">Lorem ipsum dolor sit
+                                            amet consectetur adipisicing elit. Est dolorem quis dolore debitis mollitia
+                                            consequatur.</div>
+                                        <div class="text-sm line-clamp-2 dark:text-white">Lorem ipsum dolor sit amet
+                                            consectetur,
+                                            adipisicing elit. Quidem corporis impedit id? Nam, dicta! Nostrum unde a
+                                            consequatur. Nam est nulla adipisci eligendi sapiente id corrupti porro
+                                            minima quam ipsam at delectus autem, quaerat neque voluptatum reiciendis
+                                            quibusdam. Esse beatae natus facilis laboriosam soluta iste adipisci
+                                            repellat quibusdam quo autem?</div>
+                                        <ul class="flex flex-wrap mt-2 gap-1">
+                                            <li
+                                                class="text-xs uppercase py-0.5 px-1 rounded bg-black/5 dark:bg-white/20 text-black/75 dark:text-white/75">
+                                                Lorem</li>
+                                            <li
+                                                class="text-xs uppercase py-0.5 px-1 rounded bg-black/5 dark:bg-white/20 text-black/75 dark:text-white/75">
+                                                Ipsum</li>
+                                            <li
+                                                class="text-xs uppercase py-0.5 px-1 rounded bg-black/5 dark:bg-white/20 text-black/75 dark:text-white/75">
+                                                Dolor</li>
+                                            <li
+                                                class="text-xs uppercase py-0.5 px-1 rounded bg-black/5 dark:bg-white/20 text-black/75 dark:text-white/75">
+                                                Sit</li>
+                                            <li
+                                                class="text-xs uppercase py-0.5 px-1 rounded bg-black/5 dark:bg-white/20 text-black/75 dark:text-white/75">
+                                                Amet</li>
+                                            <li
+                                                class="text-xs uppercase py-0.5 px-1 rounded bg-black/5 dark:bg-white/20 text-black/75 dark:text-white/75">
+                                                Consectetur</li>
+                                            <li
+                                                class="text-xs uppercase py-0.5 px-1 rounded bg-black/5 dark:bg-white/20 text-black/75 dark:text-white/75">
+                                                Adipisicing</li>
+                                            <li
+                                                class="text-xs uppercase py-0.5 px-1 rounded bg-black/5 dark:bg-white/20 text-black/75 dark:text-white/75">
+                                                Elit</li>
+                                            <li
+                                                class="text-xs uppercase py-0.5 px-1 rounded bg-black/5 dark:bg-white/20 text-black/75 dark:text-white/75">
+                                                Quidem</li>
+                                            <li
+                                                class="text-xs uppercase py-0.5 px-1 rounded bg-black/5 dark:bg-white/20 text-black/75 dark:text-white/75">
+                                                Corporis</li>
+                                            <li
+                                                class="text-xs uppercase py-0.5 px-1 rounded bg-black/5 dark:bg-white/20 text-black/75 dark:text-white/75">
+                                                impedit</li>
+                                        </ul>
+                                    </div>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                        fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"
+                                        class="stroke-current group-hover:stroke-black group-hover:dark:stroke-white dark:stroke-white">
+                                        <line x1="5" y1="12" x2="19" y2="12"
+                                            class="scale-x-0 group-hover:scale-x-100 translate-x-4 group-hover:translate-x-1 transition-all duration-300 ease-in-out dark:stroke-white">
+                                        </line>
+                                        <polyline points="12 5 19 12 12 19"
+                                            class="translate-x-0 group-hover:translate-x-1 transition-all duration-300 ease-in-out dark:stroke-white">
+                                        </polyline>
+                                    </svg>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#"
+                                    class="group p-4 gap-3 flex items-center border rounded-lg hover:bg-black/5 hover:dark:bg-white/10 border-black/15 dark:border-white/20 transition-colors duration-300 ease-in-out">
+                                    <div class="w-full group-hover:text-black group-hover:dark:text-white blend">
+                                        <div class="flex flex-wrap items-center gap-2">
+                                            <!--$-->
+                                            <!--/-->
+                                            <div class="text-sm uppercase dark:text-white">Aug 25, 2024</div>
+                                        </div>
+                                        <div class="font-semibold mt-3 text-black dark:text-white">Lorem, ipsum dolor
+                                            sit amet consectetur adipisicing elit?</div>
+                                        <div class="text-sm line-clamp-2 dark:text-white">Lorem ipsum dolor sit amet
+                                            consectetur
+                                            adipisicing elit. Architecto sunt asperiores quis hic soluta. Voluptatum,
+                                            laborum harum nemo nisi ipsum dicta suscipit ex eaque voluptates, blanditiis
+                                            asperiores praesentium molestias dolore?</div>
+                                        <ul class="flex flex-wrap mt-2 gap-1">
+                                            <li
+                                                class="text-xs uppercase py-0.5 px-1 rounded bg-black/5 dark:bg-white/20 text-black/75 dark:text-white/75">
+                                                Asperiores</li>
+                                            <li
+                                                class="text-xs uppercase py-0.5 px-1 rounded bg-black/5 dark:bg-white/20 text-black/75 dark:text-white/75">
+                                                Molestias</li>
+                                            <li
+                                                class="text-xs uppercase py-0.5 px-1 rounded bg-black/5 dark:bg-white/20 text-black/75 dark:text-white/75">
+                                                Hic</li>
+                                        </ul>
+                                    </div>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                        fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"
+                                        class="stroke-current group-hover:stroke-black group-hover:dark:stroke-white dark:stroke-white">
+                                        <line x1="5" y1="12" x2="19" y2="12"
+                                            class="scale-x-0 group-hover:scale-x-100 translate-x-4 group-hover:translate-x-1 transition-all duration-300 ease-in-out dark:stroke-white">
+                                        </line>
+                                        <polyline points="12 5 19 12 12 19"
+                                            class="translate-x-0 group-hover:translate-x-1 transition-all duration-300 ease-in-out dark:stroke-white">
+                                        </polyline>
+                                    </svg>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#"
+                                    class="group p-4 gap-3 flex items-center border rounded-lg hover:bg-black/5 hover:dark:bg-white/10 border-black/15 dark:border-white/20 transition-colors duration-300 ease-in-out">
+                                    <div class="w-full group-hover:text-black group-hover:dark:text-white blend">
+                                        <div class="flex flex-wrap items-center gap-2">
+                                            <!--$-->
+                                            <!--/-->
+                                            <div class="text-sm uppercase dark:text-white">Jul 05, 2024</div>
+                                        </div>
+                                        <div class="font-semibold mt-3 text-black dark:text-white">Lorem ipsum dolor sit
+                                            amet, consectetur adipisicing elit. Voluptates praesentium quaerat dolor?
+                                        </div>
+                                        <div class="text-sm line-clamp-2"></div>
+                                        <ul class="flex flex-wrap mt-2 gap-1">
+                                            <li
+                                                class="text-xs uppercase py-0.5 px-1 rounded bg-black/5 dark:bg-white/20 text-black/75 dark:text-white/75">
+                                                Voluptates</li>
+                                            <li
+                                                class="text-xs uppercase py-0.5 px-1 rounded bg-black/5 dark:bg-white/20 text-black/75 dark:text-white/75">
+                                                Eaque</li>
+                                            <li
+                                                class="text-xs uppercase py-0.5 px-1 rounded bg-black/5 dark:bg-white/20 text-black/75 dark:text-white/75">
+                                                dicta</li>
+                                        </ul>
+                                    </div>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                        fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"
+                                        class="stroke-current group-hover:stroke-black group-hover:dark:stroke-white dark:stroke-white">
+                                        <line x1="5" y1="12" x2="19" y2="12"
+                                            class="scale-x-0 group-hover:scale-x-100 translate-x-4 group-hover:translate-x-1 transition-all duration-300 ease-in-out dark:stroke-white">
+                                        </line>
+                                        <polyline points="12 5 19 12 12 19"
+                                            class="translate-x-0 group-hover:translate-x-1 transition-all duration-300 ease-in-out dark:stroke-white">
+                                        </polyline>
+                                    </svg>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </section>
+                <!-- Tech Stack Section -->
+                <section class="animate">
+                    <div class="space-y-4">
+                        <p class="font-semibold text-black dark:text-white">Website build with
+                        </p>
+                        <div class="flex flex-wrap items-center gap-2 mt-5">
+                            <a href="https://www.javascript.com" target="_blank"
+                                class="w-fit px-3 py-2 group rounded border flex gap-2 items-center border-neutral-200 dark:border-neutral-700 hover:bg-neutral-100 hover:dark:bg-neutral-800 blend">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 1052 1052">
+                                    <path fill="#f0db4f" d="M0 0h1052v1052H0z" />
+                                    <path
+                                        d="M965.9 801.1c-7.7-48-39-88.3-131.7-125.9-32.2-14.8-68.1-25.399-78.8-49.8-3.8-14.2-4.3-22.2-1.9-30.8 6.9-27.9 40.2-36.6 66.6-28.6 17 5.7 33.1 18.801 42.8 39.7 45.4-29.399 45.3-29.2 77-49.399-11.6-18-17.8-26.301-25.4-34-27.3-30.5-64.5-46.2-124-45-10.3 1.3-20.699 2.699-31 4-29.699 7.5-58 23.1-74.6 44-49.8 56.5-35.6 155.399 25 196.1 59.7 44.8 147.4 55 158.6 96.9 10.9 51.3-37.699 67.899-86 62-35.6-7.4-55.399-25.5-76.8-58.4-39.399 22.8-39.399 22.8-79.899 46.1 9.6 21 19.699 30.5 35.8 48.7 76.2 77.3 266.899 73.5 301.1-43.5 1.399-4.001 10.6-30.801 3.199-72.101zm-394-317.6h-98.4c0 85-.399 169.4-.399 254.4 0 54.1 2.8 103.7-6 118.9-14.4 29.899-51.7 26.2-68.7 20.399-17.3-8.5-26.1-20.6-36.3-37.699-2.8-4.9-4.9-8.7-5.601-9-26.699 16.3-53.3 32.699-80 49 13.301 27.3 32.9 51 58 66.399 37.5 22.5 87.9 29.4 140.601 17.3 34.3-10 63.899-30.699 79.399-62.199 22.4-41.3 17.6-91.3 17.4-146.6.5-90.2 0-180.4 0-270.9z"
+                                        fill="#323330" />
+                                </svg>
+                                <span
+                                    class="text-sm capitalize text-neutral-500 dark:text-neutral-400 group-hover:text-black group-hover:dark:text-white blend">Javascript
+                                </span>
+                            </a>
+                            <a href="https://tailwindcss.com" target="_blank"
+                                class="w-fit px-3 py-2 group rounded border flex gap-2 items-center border-neutral-200 dark:border-neutral-700 hover:bg-neutral-100 hover:dark:bg-neutral-800 blend">
+                                <svg height="20" width="20">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 54 33">
+                                        <g clip-path="url(#prefix__clip0)">
+                                            <path fill="#38bdf8" fill-rule="evenodd"
+                                                d="M27 0c-7.2 0-11.7 3.6-13.5 10.8 2.7-3.6 5.85-4.95 9.45-4.05 2.054.513 3.522 2.004 5.147 3.653C30.744 13.09 33.808 16.2 40.5 16.2c7.2 0 11.7-3.6 13.5-10.8-2.7 3.6-5.85 4.95-9.45 4.05-2.054-.513-3.522-2.004-5.147-3.653C36.756 3.11 33.692 0 27 0zM13.5 16.2C6.3 16.2 1.8 19.8 0 27c2.7-3.6 5.85-4.95 9.45-4.05 2.054.514 3.522 2.004 5.147 3.653C17.244 29.29 20.308 32.4 27 32.4c7.2 0 11.7-3.6 13.5-10.8-2.7 3.6-5.85 4.95-9.45 4.05-2.054-.513-3.522-2.004-5.147-3.653C23.256 19.31 20.192 16.2 13.5 16.2z"
+                                                clip-rule="evenodd" />
+                                        </g>
+                                        <defs>
+                                            <clipPath id="prefix__clip0">
+                                                <path fill="#fff" d="M0 0h54v32.4H0z" />
+                                            </clipPath>
+                                        </defs>
+                                    </svg>
+                                </svg>
+                                <span
+                                    class="text-sm capitalize text-neutral-500 dark:text-neutral-400 group-hover:text-black group-hover:dark:text-white blend">Tailwind
+                                </span>
+                            </a>
+                        </div>
+                        <div class="dark:text-white">
+                            Performing reactivity and statefulness, special guest
+
+                            <a href="https://www.solidjs.com/" target="_blank"
+                                class="w-fit group underline decoration-[.5px] decoration-black/25 dark:decoration-white/50 hover:decoration-black dark:hover:decoration-white text-black dark:text-white underline-offset-2 blend">
+                                <span
+                                    class="text-black/75 dark:text-white/75 group-hover:text-black group-hover:dark:text-white blend">SolidJS
+                                </span>
+                            </a>
+                        </div>
+                    </div>
+                </section>
+                <!-- Project Preview Section -->
+                <section class="animate">
+                    <div class="space-y-4">
+                        <div class="flex justify-between">
+                            <p class="font-semibold text-black dark:text-white">Recent projects
+                            </p>
+                            <a href="./projects/index.html"
+                                class="w-fit col-span-3 group flex gap-1 items-center underline decoration-[.5px] decoration-black/25 dark:decoration-white/50 hover:decoration-black dark:hover:decoration-white text-black dark:text-white underline-offset-2 blend">
+                                <span
+                                    class="text-black/75 dark:text-white/75 group-hover:text-black group-hover:dark:text-white blend">All
+                                    projects
+                                </span>
+                            </a>
+                        </div>
+                        <ul class="space-y-4">
+                            <li>
+                                <a href="https://4marr.github.io/dashboard/Image%20Transform/index.html"
+                                    class="group p-4 gap-3 flex items-center border rounded-lg hover:bg-black/5 hover:dark:bg-white/10 border-black/15 dark:border-white/20 transition-colors duration-300 ease-in-out">
+                                    <div class="w-full group-hover:text-black group-hover:dark:text-white blend">
+                                        <div class="flex flex-wrap items-center gap-2">
+                                            <!--$-->
+                                            <!--/-->
+                                            <div class="text-sm uppercase dark:text-white">Sept 27, 2024</div>
+                                        </div>
+                                        <div class="font-semibold mt-3 text-black dark:text-white">AI Image Transform
+                                        </div>
+                                        <div class="text-sm line-clamp-2 dark:text-white">Transform your image with your
+                                            favorite style.
+                                        </div>
+                                        <ul class="flex flex-wrap mt-2 gap-1">
+                                            <li
+                                                class="text-xs uppercase py-0.5 px-1 rounded bg-black/5 dark:bg-white/20 text-black/75 dark:text-white/75">
+                                                AI</li>
+                                            <li
+                                                class="text-xs uppercase py-0.5 px-1 rounded bg-black/5 dark:bg-white/20 text-black/75 dark:text-white/75">
+                                                tools</li>
+                                            <li
+                                                class="text-xs uppercase py-0.5 px-1 rounded bg-black/5 dark:bg-white/20 text-black/75 dark:text-white/75">
+                                                Image</li>
+                                            <li
+                                                class="text-xs uppercase py-0.5 px-1 rounded bg-black/5 dark:bg-white/20 text-black/75 dark:text-white/75">
+                                                Transform</li>
+                                        </ul>
+                                    </div>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                        fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"
+                                        class="stroke-current group-hover:stroke-black group-hover:dark:stroke-white dark:stroke-white">
+                                        <line x1="5" y1="12" x2="19" y2="12"
+                                            class="scale-x-0 group-hover:scale-x-100 translate-x-4 group-hover:translate-x-1 transition-all duration-300 ease-in-out dark:stroke-white">
+                                        </line>
+                                        <polyline points="12 5 19 12 12 19"
+                                            class="translate-x-0 group-hover:translate-x-1 transition-all duration-300 ease-in-out dark:stroke-white">
+                                        </polyline>
+                                    </svg>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://4marr.github.io/dashboard/HD%20Image/index.html"
+                                    class="group p-4 gap-3 flex items-center border rounded-lg hover:bg-black/5 hover:dark:bg-white/10 border-black/15 dark:border-white/20 transition-colors duration-300 ease-in-out">
+                                    <div class="w-full group-hover:text-black group-hover:dark:text-white blend">
+                                        <div class="flex flex-wrap items-center gap-2">
+                                            <!--$-->
+                                            <!--/-->
+                                            <div class="text-sm uppercase dark:text-white">Sept 23, 2024</div>
+                                        </div>
+                                        <div class="font-semibold mt-3 text-black dark:text-white">HD Image</div>
+                                        <div class="text-sm line-clamp-2 dark:text-white">Make your images HD with
+                                            Remini (based).</div>
+                                        <ul class="flex flex-wrap mt-2 gap-1">
+                                            <li
+                                                class="text-xs uppercase py-0.5 px-1 rounded bg-black/5 dark:bg-white/20 text-black/75 dark:text-white/75">
+                                                Tools</li>
+                                            <li
+                                                class="text-xs uppercase py-0.5 px-1 rounded bg-black/5 dark:bg-white/20 text-black/75 dark:text-white/75">
+                                                Upscaler</li>
+                                            <li
+                                                class="text-xs uppercase py-0.5 px-1 rounded bg-black/5 dark:bg-white/20 text-black/75 dark:text-white/75">
+                                                HD</li>
+                                            <li
+                                                class="text-xs uppercase py-0.5 px-1 rounded bg-black/5 dark:bg-white/20 text-black/75 dark:text-white/75">
+                                                Image</li>
+                                        </ul>
+                                    </div>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                        fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"
+                                        class="stroke-current group-hover:stroke-black group-hover:dark:stroke-white dark:stroke-white">
+                                        <line x1="5" y1="12" x2="19" y2="12"
+                                            class="scale-x-0 group-hover:scale-x-100 translate-x-4 group-hover:translate-x-1 transition-all duration-300 ease-in-out dark:stroke-white">
+                                        </line>
+                                        <polyline points="12 5 19 12 12 19"
+                                            class="translate-x-0 group-hover:translate-x-1 transition-all duration-300 ease-in-out dark:stroke-white">
+                                        </polyline>
+                                    </svg>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://4marr.github.io/dashboard/al%20quran%20web/index.html"
+                                    class="group p-4 gap-3 flex items-center border rounded-lg hover:bg-black/5 hover:dark:bg-white/10 border-black/15 dark:border-white/20 transition-colors duration-300 ease-in-out">
+                                    <div class="w-full group-hover:text-black group-hover:dark:text-white blend">
+                                        <div class="flex flex-wrap items-center gap-2">
+                                            <!--$-->
+                                            <!--/-->
+                                            <div class="text-sm uppercase dark:text-white">Aug 25, 2022</div>
+                                        </div>
+                                        <div class="font-semibold mt-3 text-black dark:text-white">Al Qur'an Web</div>
+                                        <div class="text-sm line-clamp-2 dark:text-white">Read and listen to verses of Al Qur'an on the web.</div>
+                                        <ul class="flex flex-wrap mt-2 gap-1">
+                                            <li
+                                                class="text-xs uppercase py-0.5 px-1 rounded bg-black/5 dark:bg-white/20 text-black/75 dark:text-white/75">
+                                                Al-Qur'an</li>
+                                        </ul>
+                                    </div>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                        fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"
+                                        class="stroke-current group-hover:stroke-black group-hover:dark:stroke-white dark:stroke-white">
+                                        <line x1="5" y1="12" x2="19" y2="12"
+                                            class="scale-x-0 group-hover:scale-x-100 translate-x-4 group-hover:translate-x-1 transition-all duration-300 ease-in-out dark:stroke-white">
+                                        </line>
+                                        <polyline points="12 5 19 12 12 19"
+                                            class="translate-x-0 group-hover:translate-x-1 transition-all duration-300 ease-in-out dark:stroke-white">
+                                        </polyline>
+                                    </svg>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </section>
+                <!-- Contact Section -->
+                <section class="animate">
+                    <div>
+                        <p class="font-semibold text-black dark:text-white">Let's Connect
+                        </p>
+                        <p class="dark:text-white">Reach out to me via email or on social media.
+                        </p>
+                        <div class="grid grid-cols-4 gap-y-2 mt-4 auto-cols-min">
+                            <div class="col-span-1 flex items-center gap-1">
+                                <span class="whitespace-nowrap truncate dark:text-white">Email </span>
+                            </div>
+                            <div class="col-span-3 truncate">
+                                <a href="mailto:ammarithm@gmail.com" target="_blank"
+                                    class="w-fit col-span-3 group flex gap-1 items-center underline decoration-[.5px] decoration-black/25 dark:decoration-white/50 hover:decoration-black dark:hover:decoration-white text-black dark:text-white underline-offset-2 blend">
+                                    <span
+                                        class="text-black/75 dark:text-white/75 group-hover:text-black group-hover:dark:text-white blend">ammarithm@gmail.com
+                                    </span>
+                                </a>
+                            </div>
+                            <div class="col-span-1 flex items-center gap-1">
+                                <span class="whitespace-nowrap truncate dark:text-white">Instagram </span>
+                            </div>
+                            <div class="col-span-3 truncate">
+                                <a href="https://www.instagram.com/ammaricano" target="_blank"
+                                    class="w-fit col-span-3 group flex gap-1 items-center underline decoration-[.5px] decoration-black/25 dark:decoration-white/50 hover:decoration-black dark:hover:decoration-white text-black dark:text-white underline-offset-2 blend">
+                                    <span
+                                        class="text-black/75 dark:text-white/75 group-hover:text-black group-hover:dark:text-white blend">@ammaricano
+                                    </span>
+                                </a>
+                            </div>
+                            <div class="col-span-1 flex items-center gap-1">
+                                <span class="whitespace-nowrap truncate dark:text-white">Facebook </span>
+                            </div>
+                            <div class="col-span-3 truncate">
+                                <a href="https://www.facebook.com/cara.sudar.5?mibextid=ZbWKwL" target="_blank"
+                                    class="w-fit col-span-3 group flex gap-1 items-center underline decoration-[.5px] decoration-black/25 dark:decoration-white/50 hover:decoration-black dark:hover:decoration-white text-black dark:text-white underline-offset-2 blend">
+                                    <span
+                                        class="text-black/75 dark:text-white/75 group-hover:text-black group-hover:dark:text-white blend">Marr
+                                        Vermillion I
+                                    </span>
+                                </a>
+                            </div>
+                            <div class="col-span-1 flex items-center gap-1">
+                                <span class="whitespace-nowrap truncate dark:text-white">Discord </span>
+                            </div>
+                            <div class="col-span-3 truncate">
+                                <a href="discordapp.com/users/932138991728345129" target="_blank"
+                                    class="w-fit col-span-3 group flex gap-1 items-center underline decoration-[.5px] decoration-black/25 dark:decoration-white/50 hover:decoration-black dark:hover:decoration-white text-black dark:text-white underline-offset-2 blend">
+                                    <span
+                                        class="text-black/75 dark:text-white/75 group-hover:text-black group-hover:dark:text-white blend">4marr_
+                                    </span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </main>
+    <footer class="relative bg-white dark:bg-black">
+        <div class="animate">
+            <section class="py-5">
+                <div class="w-full h-full mx-auto px-5 max-w-screen-md">
+                    <div class="flex items-center justify-center sm:justify-end">
+                        <button id="back-to-top" aria-label="Back to top of page"
+                            class="group flex w-fit p-2 gap-1.5 text-sm items-center border rounded hover:bg-black/5 hover:dark:bg-white/10 border-black/15 dark:border-white/20 transition-colors duration-300 ease-in-out">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="stroke-current group-hover:stroke-black group-hover:dark:stroke-white dark:stroke-white rotate-90">
+                                <line x1="19" y1="12" x2="5" y2="12" class="scale-x-0 group-hover:scale-x-100 translate-x-3 group-hover:translate-x-0 transition-all duration-300 ease-in-out"></line>
+                                <polyline points="12 19 5 12 12 5" class="translate-x-1 group-hover:translate-x-0 transition-all duration-300 ease-in-out"></polyline>
+                            </svg>
+                            <div
+                                class="w-full group-hover:text-black group-hover:dark:text-white transition-colors duration-300 ease-in-out dark:text-white">
+                                Back to top </div>
+                        </button>
+                    </div>
+                </div>
+            </section>
+            <section
+                class=" py-5 overflow-hidden whitespace-nowrap border-t border-black/10 dark:border-white/25 dark:text-white">
+                <div class="w-full h-full mx-auto px-5 max-w-screen-md">
+                    <div class="h-full grid grid-cols-1 sm:grid-cols-2 gap-3">
+                        <div class="order-2 sm:order-1 flex flex-col items-center justify-center sm:items-start">
+                            <div class="legal">
+                                <a href="#"
+                                    class="text-current hover:text-black dark:hover:text-white transition-colors duration-300 ease-in-out">Terms
+                                </a>
+                                |
+                                <a href="#"
+                                    class="text-current hover:text-black dark:hover:text-white transition-colors duration-300 ease-in-out">Privacy
+                                </a>
+                            </div>
+                            <div class="text-sm mt-2">&copy;2024 | All rights reserved
+                            </div>
+                        </div>
+                        <div class="order-1 sm:order-2 flex justify-center sm:justify-end">
+                            <div class="flex flex-wrap gap-1 items-center justify-center">
+                                <a href="mailto:ammarithm@gmail.com" target="_blank" aria-label="Ammar Dev on Email"
+                                    class="group size-10 rounded-full p-2 items-center justify-center hover:bg-black/5 dark:hover:bg-white/20  blend">
+                                    <svg
+                                        class="size-full fill-current group-hover:fill-black group-hover:dark:fill-white blend">
+                                        <use href="./svg/social.svg#email"></use>
+                                    </svg>
+                                </a>
+                                <a href="https://www.instagram.com/ammaricano" target="_blank"
+                                    aria-label="Ammar Dev on Instagram"
+                                    class="group size-10 rounded-full p-2 items-center justify-center hover:bg-black/5 dark:hover:bg-white/20  blend">
+                                    <svg
+                                        class="size-full fill-current group-hover:fill-black group-hover:dark:fill-white blend left-5">
+                                        <use href="./svg/social.svg#instagram"></use>
+                                    </svg>
+                                </a>
+                                <a href="https://www.facebook.com/cara.sudar.5?mibextid=ZbWKwL" target="_blank"
+                                    aria-label="Ammar Dev on Facebook"
+                                    class="group size-10 rounded-full p-2 items-center justify-center hover:bg-black/5 dark:hover:bg-white/20  blend">
+                                    <svg
+                                        class="size-full fill-current group-hover:fill-black group-hover:dark:fill-white blend stroke-current stroke-2">
+                                        <use href="./svg/social.svg#facebook"></use>
+                                    </svg>
+                                </a>
+                                <a href="discordapp.com/users/932138991728345129" target="_blank"
+                                    aria-label="Ammar Dev on Discord"
+                                    class="group size-10 rounded-full p-2 items-center justify-center hover:bg-black/5 dark:hover:bg-white/20  blend">
+                                    <svg
+                                        class="size-full fill-current group-hover:fill-black group-hover:dark:fill-white blend stroke-current stroke-2">
+                                        <use href="./svg/social.svg#discord"></use>
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </footer>
+    <script>
+        function goBackToTop(event) {
+            event.preventDefault()
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            })
+        }
+
+        function inintializeBackToTop() {
+            const backToTop = document.getElementById("back-to-top")
+            backToTop?.addEventListener("click", goBackToTop)
+        }
+
+        document.addEventListener("astro:after-swap", inintializeBackToTop)
+        inintializeBackToTop()
+    </script>
+    </div>
+    </footer>
+</body>
+
+</html>

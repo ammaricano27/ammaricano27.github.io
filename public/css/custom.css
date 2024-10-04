@@ -1,0 +1,283 @@
+body{
+    font-family: "Atkinson Hyperlegible", system-ui;
+}
+.blend {
+    transition-property: all;
+    transition-duration: .3s;
+    transition-timing-function: cubic-bezier(.4,0,.2,1)
+}
+
+@keyframes animateParticle {
+    0% {
+        transform: translateY(0)
+    }
+
+    to {
+        transform: translateY(-2000px)
+    }
+}
+
+.animate {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 1s ease,transform 1s ease
+}
+
+.animate.show {
+    opacity: 1;
+    transform: translateY(0)
+}
+
+article img {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    display: block;
+    margin: 0 auto
+}
+
+#twinkle-star.template {
+    position: absolute;
+    left: -100%
+}
+
+@keyframes twinkle {
+    0% {
+        opacity: 0;
+        transform: rotate(0)
+    }
+
+    50% {
+        opacity: 1;
+        transform: rotate(180deg)
+    }
+
+    to {
+        opacity: 0;
+        transform: rotate(360deg)
+    }
+}
+
+#twinkle-star.twinkle {
+    animation: twinkle 2s ease-in-out forwards
+}
+
+#meteors .shower {
+    position: absolute;
+    inset: 0 0 0 50%;
+    --tw-translate-x: -50%;
+    transform: translate(var(--tw-translate-x),var(--tw-translate-y)) rotate(var(--tw-rotate)) skew(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+    aspect-ratio: 1 / 1;
+    width: 100vw
+}
+
+@keyframes meteor {
+    0% {
+        opacity: 0;
+        transform: translateY(200%)
+    }
+
+    50% {
+        opacity: 1
+    }
+
+    to {
+        opacity: 0;
+        transform: translateY(0)
+    }
+}
+
+#meteors .meteor {
+    animation: meteor 3s ease-in-out forwards;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    height: 75vh;
+    width: 1px;
+    background-image: linear-gradient(to bottom,var(--tw-gradient-stops));
+    --tw-gradient-from: #fff var(--tw-gradient-from-position);
+    --tw-gradient-to: rgb(255 255 255 / 0) var(--tw-gradient-to-position);
+    --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+    --tw-gradient-to: transparent var(--tw-gradient-to-position)
+}
+
+#meteors .shower.ur {
+    --tw-rotate: 45deg;
+    transform: translate(var(--tw-translate-x),var(--tw-translate-y)) rotate(var(--tw-rotate)) skew(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))
+}
+
+#meteors .shower.dr {
+    --tw-rotate: 135deg;
+    transform: translate(var(--tw-translate-x),var(--tw-translate-y)) rotate(var(--tw-rotate)) skew(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))
+}
+
+#meteors .shower.dl {
+    --tw-rotate: 225deg;
+    transform: translate(var(--tw-translate-x),var(--tw-translate-y)) rotate(var(--tw-rotate)) skew(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))
+}
+
+#meteors .shower.ul {
+    --tw-rotate: 315deg;
+    transform: translate(var(--tw-translate-x),var(--tw-translate-y)) rotate(var(--tw-rotate)) skew(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))
+}
+
+#header-drawer-button[data-astro-cid-3ef6ksr2]>#drawer-open[data-astro-cid-3ef6ksr2] {
+    display: block
+}
+
+#header-drawer-button[data-astro-cid-3ef6ksr2]>#drawer-close[data-astro-cid-3ef6ksr2] {
+    display: none
+}
+
+#header-drawer-button[data-astro-cid-3ef6ksr2].open>#drawer-open[data-astro-cid-3ef6ksr2] {
+    display: none
+}
+
+#header-drawer-button[data-astro-cid-3ef6ksr2].open>#drawer-close[data-astro-cid-3ef6ksr2] {
+    display: block
+}
+
+#drawer[data-astro-cid-hxtyo74s].open {
+    height: 100%
+}
+
+
+.dark\:block:is(.dark *) {
+    display: block
+}
+
+.dark\:hidden:is(.dark *) {
+    display: none
+}
+
+.dark\:border-neutral-700:is(.dark *) {
+    --tw-border-opacity: 1;
+    border-color: rgb(64 64 64 / var(--tw-border-opacity))
+}
+
+.dark\:border-white\/20:is(.dark *) {
+    border-color: #fff3
+}
+
+.dark\:border-white\/25:is(.dark *) {
+    border-color: #ffffff40
+}
+
+.dark\:bg-black:is(.dark *) {
+    --tw-bg-opacity: 1;
+    background-color: rgb(0 0 0 / var(--tw-bg-opacity))
+}
+
+.dark\:bg-neutral-900:is(.dark *) {
+    --tw-bg-opacity: 1;
+    background-color: rgb(23 23 23 / var(--tw-bg-opacity))
+}
+
+.dark\:bg-white:is(.dark *) {
+    --tw-bg-opacity: 1;
+    background-color: rgb(255 255 255 / var(--tw-bg-opacity))
+}
+
+.dark\:bg-white\/10:is(.dark *) {
+    background-color: #ffffff1a
+}
+
+.dark\:bg-white\/15:is(.dark *) {
+    background-color: #ffffff26
+}
+
+.dark\:bg-white\/20:is(.dark *) {
+    background-color: #fff3
+}
+
+.dark\:bg-white\/25:is(.dark *) {
+    background-color: #ffffff40
+}
+
+.dark\:from-white\/75:is(.dark *) {
+    --tw-gradient-from: rgb(255 255 255 / .75) var(--tw-gradient-from-position);
+    --tw-gradient-to: rgb(255 255 255 / 0) var(--tw-gradient-to-position);
+    --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to)
+}
+
+.dark\:fill-white:is(.dark *) {
+    fill: #fff
+}
+
+.dark\:fill-white\/50:is(.dark *) {
+    fill: #ffffff80
+}
+
+.dark\:text-black:is(.dark *) {
+    --tw-text-opacity: 1;
+    color: rgb(0 0 0 / var(--tw-text-opacity))
+}
+
+.dark\:text-neutral-400:is(.dark *) {
+    --tw-text-opacity: 1;
+    color: rgb(163 163 163 / var(--tw-text-opacity))
+}
+
+.dark\:text-white:is(.dark *) {
+    --tw-text-opacity: 1;
+    color: rgb(255 255 255 / var(--tw-text-opacity))
+}
+
+.dark\:text-white\/75:is(.dark *) {
+    color: #ffffffbf
+}
+
+.dark\:decoration-white\/50:is(.dark *) {
+    text-decoration-color: #ffffff80
+}
+
+.dark\:hover\:bg-white\/15:hover:is(.dark *) {
+    background-color: #ffffff26
+}
+
+.dark\:hover\:bg-white\/20:hover:is(.dark *) {
+    background-color: #fff3
+}
+
+.hover\:dark\:bg-neutral-800:is(.dark *):hover {
+    --tw-bg-opacity: 1;
+    background-color: rgb(38 38 38 / var(--tw-bg-opacity))
+}
+
+.hover\:dark\:bg-white\/10:is(.dark *):hover {
+    background-color: #ffffff1a
+}
+
+.hover\:dark\:bg-white\/15:is(.dark *):hover {
+    background-color: #ffffff26
+}
+
+.hover\:dark\:stroke-white:is(.dark *):hover {
+    stroke: #fff
+}
+
+.dark\:hover\:text-white:hover:is(.dark *) {
+    --tw-text-opacity: 1;
+    color: rgb(255 255 255 / var(--tw-text-opacity))
+}
+
+.dark\:hover\:decoration-white:hover:is(.dark *) {
+    text-decoration-color: #fff
+}
+
+.focus\:dark\:border-white:is(.dark *):focus {
+    --tw-border-opacity: 1;
+    border-color: rgb(255 255 255 / var(--tw-border-opacity))
+}
+
+.group:hover .group-hover\:dark\:fill-white:is(.dark *) {
+    fill: #fff
+}
+
+.group:hover .group-hover\:dark\:stroke-white:is(.dark *) {
+    stroke: #fff
+}
+
+.group:hover .group-hover\:dark\:text-white:is(.dark *) {
+    --tw-text-opacity: 1;
+    color: rgb(255 255 255 / var(--tw-text-opacity))
+}

@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en" class="">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Belajar Tailwind</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/custom.css">
+    <script src="../js/animate.js"></script>
+    <script src="../js/scroll.js"></script>
+    <script src="../js/theme.js"></script>
+    <script type="module" src="../js/script.js"></script>
+</head>
+
+<body>
+    <header id="header" class="fixed top-0 w-full h-16 z-50" data-astro-cid-3ef6ksr2>
+        <div class="w-full h-full mx-auto px-5 max-w-screen-md">
+            <div class="relative h-full w-full" data-astro-cid-3ef6ksr2>
+                <div class="absolute left-0 top-1/2 -translate-y-1/2 flex gap-1 font-semibold" data-astro-cid-3ef6ksr2>
+                    <a href="/"
+                        class="flex gap-1 text-current hover:text-black dark:hover:text-white transition-colors duration-300 ease-in-out"
+                        data-astro-cid-3ef6ksr2>
+                        <!-- <svg class="size-6 fill-current">
+        <use href="/brand.svg#brand"></use>
+      </svg> -->
+                        <div data-astro-cid-3ef6ksr2 class="dark:text-white">Ammar Dev </div>
+                    </a>
+                </div>
+                <div class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2" data-astro-cid-3ef6ksr2>
+                    <nav class="hidden md:flex items-center justify-center text-sm gap-4" data-astro-cid-3ef6ksr2>
+                        <a href="../index.html"
+                            class="h-8 rounded-full px-3 text-current flex items-center justify-center transition-colors duration-300 ease-in-out hover:bg-black/5 dark:hover:bg-white/20 hover:text-black dark:hover:text-white dark:text-white"
+                            data-astro-cid-3ef6ksr2>Home </a>
+                        <a href="/"
+                            class="h-8 rounded-full px-3 flex items-center justify-center transition-colors duration-300 ease-in-out bg-black dark:bg-white text-white dark:text-black"
+                            data-astro-cid-3ef6ksr2>Blog </a>
+                        <a href="../projects/index.html"
+                            class="h-8 rounded-full px-3 text-current flex items-center justify-center transition-colors duration-300 ease-in-out hover:bg-black/5 dark:hover:bg-white/20 hover:text-black dark:hover:text-white dark:text-white"
+                            data-astro-cid-3ef6ksr2>Projects </a>
+                    </nav>
+                </div>
+                <div class="buttons absolute right-0 top-1/2 -translate-y-1/2 flex gap-1" data-astro-cid-3ef6ksr2>
+                    <a href="https://discord.gg/NAuwJc9Zk8" target="_blank" aria-label="Discord Channel"
+                        class="hidden md:flex size-9 rounded-full p-2 items-center justify-center bg-transparent hover:bg-black/5 dark:hover:bg-white/20 stroke-current hover:stroke-black hover:dark:stroke-white border border-black/10 dark:border-white/25 transition-colors duration-300 ease-in-out"
+                        data-astro-cid-3ef6ksr2>
+                        <svg class="size-full dark:stroke-white" data-astro-cid-3ef6ksr2>
+                            <use href="../svg/ui.svg#rss" data-astro-cid-3ef6ksr2></use>
+                        </svg>
+                    </a>
+                    <button id="drawer-theme-button" aria-label="Toggle light and dark theme" class="size-9 rounded-full p-2 items-center justify-center bg-transparent hover:bg-black/5 dark:hover:bg-white/20 stroke-current dark:stroke-white hover:stroke-black hover:dark:stroke-white border border-black/10 dark:border-white/25 transition-colors duration-300 ease-in-out" data-astro-cid-hxtyo74s>
+                        <svg class="block dark:hidden size-full" data-astro-cid-hxtyo74s>
+                            <use href="../svg/ui.svg#sun" data-astro-cid-hxtyo74s></use>
+                        </svg>
+                        <svg class="hidden dark:block size-full" data-astro-cid-hxtyo74s>
+                            <use href="../svg/ui.svg#moon" data-astro-cid-hxtyo74s></use>
+                        </svg>
+                    </button>
+                    <button id="header-drawer-button" aria-label="Toggle drawer open and closed"
+                        class="flex md:hidden size-9 rounded-full p-2 items-center justify-center bg-transparent hover:bg-black/5 dark:hover:bg-white/20 stroke-current hover:stroke-black hover:dark:stroke-white dark:stroke-white border border-black/10 dark:border-white/25 transition-colors duration-300 ease-in-out"
+                        data-astro-cid-3ef6ksr2>
+                        <svg id="drawer-open" class="size-full" data-astro-cid-3ef6ksr2>
+                            <use href="../svg/ui.svg#menu" data-astro-cid-3ef6ksr2></use>
+                        </svg>
+                        <svg id="drawer-close" class="size-full" data-astro-cid-3ef6ksr2>
+                            <use href="../svg/ui.svg#x" data-astro-cid-3ef6ksr2></use>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+    <script>
+        function toggleDrawer() {
+            const drawer = document.getElementById("drawer")
+            const drawerButton = document.getElementById("header-drawer-button")
+            drawer?.classList.toggle("open")
+            drawerButton?.classList.toggle("open")
+        }
+
+        function initializeDrawerButton() {
+            const drawerButton = document.getElementById("header-drawer-button")
+            drawerButton?.addEventListener("click", toggleDrawer)
+        }
+
+        document.addEventListener("astro:after-swap", initializeDrawerButton)
+        initializeDrawerButton()
+    </script>
+    <div id="drawer"
+        class="fixed inset-0 h-0 z-40 overflow-hidden flex flex-col items-center justify-center md:hidden bg-neutral-100 dark:bg-neutral-900 transition-[height] duration-300 ease-in-out"
+        data-astro-cid-hxtyo74s>
+        <nav class="flex flex-col items-center space-y-2" data-astro-cid-hxtyo74s>
+            <a href="../index.html"
+                class="flex items-center justify-center px-3 py-1 rounded-full text-current hover:text-black dark:hover:text-white hover:bg-black/5 dark:hover:bg-white/20 transition-colors duration-300 ease-in-out dark:text-white"
+                data-astro-cid-hxtyo74s>Home </a>
+            <a href="/"
+                class="flex items-center justify-center px-3 py-1 rounded-full hover:text-black dark:hover:text-white hover:bg-black/5 dark:hover:bg-white/20 transition-colors duration-300 ease-in-out pointer-events-none bg-black dark:bg-white text-white dark:text-black"
+                data-astro-cid-hxtyo74s>Blog </a>
+            <a href="../projects/index.html"
+                class="flex items-center justify-center px-3 py-1 rounded-full text-current hover:text-black dark:hover:text-white hover:bg-black/5 dark:hover:bg-white/20 transition-colors duration-300 ease-in-out dark:text-white"
+                data-astro-cid-hxtyo74s>Projects </a>
+        </nav>
+        <div class="flex gap-1 mt-5" data-astro-cid-hxtyo74s>
+            <a href="https://discord.gg/NAuwJc9Zk8" target="_blank" aria-label="Discord Channel"
+                class="size-9 rounded-full p-2 items-center justify-center bg-transparent hover:bg-black/5 dark:hover:bg-white/20 stroke-current hover:stroke-black hover:dark:stroke-white dark:stroke-white border border-black/10 dark:border-white/25 transition-colors duration-300 ease-in-out"
+                data-astro-cid-hxtyo74s>
+                <svg class="size-full" data-astro-cid-hxtyo74s>
+                    <use href="../svg/ui.svg#rss" data-astro-cid-hxtyo74s></use>
+                </svg>
+            </a>
+        </div>
+    </div>
+    <main>
+        <div class="relative bg-white dark:bg-black">
+            <div class="mx-auto max-w-screen-sm p-5 space-y-24 pb-16">
+                <!-- Blog Preview Section -->
+                <section class="animate pt-6">
+                    <p class="font-semibold text-black dark:text-white mb-2 mt-10 text-lg">Blog
+                    </p>
+                    <div class="">
+                        <div class="flex justify-between">
+                            <p
+                                class="w-fit col-span-3 group flex items-center hover:decoration-black dark:hover:decoration-white text-black dark:text-white blend">
+                                <span
+                                    class="text-black/75 dark:text-white/75 group-hover:text-black group-hover:dark:text-white blend">SHOWING 3 OF 3 POSTS
+                                </span>
+                            </p>
+                        </div>
+                        <ul class="space-y-4">
+                            <li>
+                                <a href="#"
+                                    class="group p-4 gap-3 flex items-center border rounded-lg hover:bg-black/5 hover:dark:bg-white/10 border-black/15 dark:border-white/20 transition-colors duration-300 ease-in-out">
+                                    <div class="w-full group-hover:text-black group-hover:dark:text-white blend">
+                                        <div class="flex flex-wrap items-center gap-2">
+                                            <!--$-->
+                                            <!--/-->
+                                            <div class="text-sm uppercase dark:text-white">Aug 27, 2024</div>
+                                        </div>
+                                        <div class="font-semibold mt-3 text-black dark:text-white">Lorem ipsum dolor sit
+                                            amet consectetur adipisicing elit. Est dolorem quis dolore debitis mollitia
+                                            consequatur.</div>
+                                        <div class="text-sm line-clamp-2 dark:text-white">Lorem ipsum dolor sit amet consectetur,
+                                            adipisicing elit. Quidem corporis impedit id? Nam, dicta! Nostrum unde a
+                                            consequatur. Nam est nulla adipisci eligendi sapiente id corrupti porro
+                                            minima quam ipsam at delectus autem, quaerat neque voluptatum reiciendis
+                                            quibusdam. Esse beatae natus facilis laboriosam soluta iste adipisci
+                                            repellat quibusdam quo autem?</div>
+                                        <ul class="flex flex-wrap mt-2 gap-1">
+                                            <li
+                                                class="text-xs uppercase py-0.5 px-1 rounded bg-black/5 dark:bg-white/20 text-black/75 dark:text-white/75">
+                                                Lorem</li>
+                                            <li
+                                                class="text-xs uppercase py-0.5 px-1 rounded bg-black/5 dark:bg-white/20 text-black/75 dark:text-white/75">
+                                                Ipsum</li>
+                                            <li
+                                                class="text-xs uppercase py-0.5 px-1 rounded bg-black/5 dark:bg-white/20 text-black/75 dark:text-white/75">
+                                                Dolor</li>
+                                            <li
+                                                class="text-xs uppercase py-0.5 px-1 rounded bg-black/5 dark:bg-white/20 text-black/75 dark:text-white/75">
+                                                Sit</li>
+                                            <li
+                                                class="text-xs uppercase py-0.5 px-1 rounded bg-black/5 dark:bg-white/20 text-black/75 dark:text-white/75">
+                                                Amet</li>
+                                            <li
+                                                class="text-xs uppercase py-0.5 px-1 rounded bg-black/5 dark:bg-white/20 text-black/75 dark:text-white/75">
+                                                Consectetur</li>
+                                            <li
+                                                class="text-xs uppercase py-0.5 px-1 rounded bg-black/5 dark:bg-white/20 text-black/75 dark:text-white/75">
+                                                Adipisicing</li>
+                                            <li
+                                                class="text-xs uppercase py-0.5 px-1 rounded bg-black/5 dark:bg-white/20 text-black/75 dark:text-white/75">
+                                                Elit</li>
+                                            <li
+                                                class="text-xs uppercase py-0.5 px-1 rounded bg-black/5 dark:bg-white/20 text-black/75 dark:text-white/75">
+                                                Quidem</li>
+                                            <li
+                                                class="text-xs uppercase py-0.5 px-1 rounded bg-black/5 dark:bg-white/20 text-black/75 dark:text-white/75">
+                                                Corporis</li>
+                                            <li
+                                                class="text-xs uppercase py-0.5 px-1 rounded bg-black/5 dark:bg-white/20 text-black/75 dark:text-white/75">
+                                                impedit</li>
+                                        </ul>
+                                    </div>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                        fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"
+                                        class="stroke-current group-hover:stroke-black group-hover:dark:stroke-white dark:stroke-white">
+                                        <line x1="5" y1="12" x2="19" y2="12"
+                                            class="scale-x-0 group-hover:scale-x-100 translate-x-4 group-hover:translate-x-1 transition-all duration-300 ease-in-out dark:stroke-white">
+                                        </line>
+                                        <polyline points="12 5 19 12 12 19"
+                                            class="translate-x-0 group-hover:translate-x-1 transition-all duration-300 ease-in-out dark:stroke-white">
+                                        </polyline>
+                                    </svg>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#"
+                                    class="group p-4 gap-3 flex items-center border rounded-lg hover:bg-black/5 hover:dark:bg-white/10 border-black/15 dark:border-white/20 transition-colors duration-300 ease-in-out">
+                                    <div class="w-full group-hover:text-black group-hover:dark:text-white blend">
+                                        <div class="flex flex-wrap items-center gap-2">
+                                            <!--$-->
+                                            <!--/-->
+                                            <div class="text-sm uppercase dark:text-white">Aug 25, 2024</div>
+                                        </div>
+                                        <div class="font-semibold mt-3 text-black dark:text-white">Lorem, ipsum dolor
+                                            sit amet consectetur adipisicing elit?</div>
+                                        <div class="text-sm line-clamp-2 dark:text-white">Lorem ipsum dolor sit amet consectetur
+                                            adipisicing elit. Architecto sunt asperiores quis hic soluta. Voluptatum,
+                                            laborum harum nemo nisi ipsum dicta suscipit ex eaque voluptates, blanditiis
+                                            asperiores praesentium molestias dolore?</div>
+                                        <ul class="flex flex-wrap mt-2 gap-1">
+                                            <li
+                                                class="text-xs uppercase py-0.5 px-1 rounded bg-black/5 dark:bg-white/20 text-black/75 dark:text-white/75">
+                                                Asperiores</li>
+                                            <li
+                                                class="text-xs uppercase py-0.5 px-1 rounded bg-black/5 dark:bg-white/20 text-black/75 dark:text-white/75">
+                                                Molestias</li>
+                                            <li
+                                                class="text-xs uppercase py-0.5 px-1 rounded bg-black/5 dark:bg-white/20 text-black/75 dark:text-white/75">
+                                                Hic</li>
+                                        </ul>
+                                    </div>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                        fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"
+                                        class="stroke-current group-hover:stroke-black group-hover:dark:stroke-white dark:stroke-white">
+                                        <line x1="5" y1="12" x2="19" y2="12"
+                                            class="scale-x-0 group-hover:scale-x-100 translate-x-4 group-hover:translate-x-1 transition-all duration-300 ease-in-out dark:stroke-white">
+                                        </line>
+                                        <polyline points="12 5 19 12 12 19"
+                                            class="translate-x-0 group-hover:translate-x-1 transition-all duration-300 ease-in-out dark:stroke-white">
+                                        </polyline>
+                                    </svg>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#"
+                                    class="group p-4 gap-3 flex items-center border rounded-lg hover:bg-black/5 hover:dark:bg-white/10 border-black/15 dark:border-white/20 transition-colors duration-300 ease-in-out">
+                                    <div class="w-full group-hover:text-black group-hover:dark:text-white blend">
+                                        <div class="flex flex-wrap items-center gap-2">
+                                            <!--$-->
+                                            <!--/-->
+                                            <div class="text-sm uppercase dark:text-white">Jul 05, 2024</div>
+                                        </div>
+                                        <div class="font-semibold mt-3 text-black dark:text-white">Lorem ipsum dolor sit
+                                            amet, consectetur adipisicing elit. Voluptates praesentium quaerat dolor?
+                                        </div>
+                                        <div class="text-sm line-clamp-2"></div>
+                                        <ul class="flex flex-wrap mt-2 gap-1">
+                                            <li
+                                                class="text-xs uppercase py-0.5 px-1 rounded bg-black/5 dark:bg-white/20 text-black/75 dark:text-white/75">
+                                                Voluptates</li>
+                                            <li
+                                                class="text-xs uppercase py-0.5 px-1 rounded bg-black/5 dark:bg-white/20 text-black/75 dark:text-white/75">
+                                                Eaque</li>
+                                            <li
+                                                class="text-xs uppercase py-0.5 px-1 rounded bg-black/5 dark:bg-white/20 text-black/75 dark:text-white/75">
+                                                dicta</li>
+                                        </ul>
+                                    </div>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                        fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"
+                                        class="stroke-current group-hover:stroke-black group-hover:dark:stroke-white dark:stroke-white">
+                                        <line x1="5" y1="12" x2="19" y2="12"
+                                            class="scale-x-0 group-hover:scale-x-100 translate-x-4 group-hover:translate-x-1 transition-all duration-300 ease-in-out dark:stroke-white">
+                                        </line>
+                                        <polyline points="12 5 19 12 12 19"
+                                            class="translate-x-0 group-hover:translate-x-1 transition-all duration-300 ease-in-out dark:stroke-white">
+                                        </polyline>
+                                    </svg>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </main>
+    <footer class="relative bg-white dark:bg-black">
+        <div class="animate">
+            <section class="py-5">
+                <div class="w-full h-full mx-auto px-5 max-w-screen-md">
+                    <div class="flex items-center justify-center sm:justify-end">
+                        <button id="back-to-top" aria-label="Back to top of page"
+                            class="group flex w-fit p-2 gap-1.5 text-sm items-center border rounded hover:bg-black/5 hover:dark:bg-white/10 border-black/15 dark:border-white/20 transition-colors duration-300 ease-in-out">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="stroke-current group-hover:stroke-black group-hover:dark:stroke-white dark:stroke-white rotate-90">
+                                <line x1="19" y1="12" x2="5" y2="12" class="scale-x-0 group-hover:scale-x-100 translate-x-3 group-hover:translate-x-0 transition-all duration-300 ease-in-out"></line>
+                                <polyline points="12 19 5 12 12 5" class="translate-x-1 group-hover:translate-x-0 transition-all duration-300 ease-in-out"></polyline>
+                            </svg>
+                            <div
+                                class="w-full group-hover:text-black group-hover:dark:text-white transition-colors duration-300 ease-in-out dark:text-white">
+                                Back to top </div>
+                        </button>
+                    </div>
+                </div>
+            </section>
+            <section class=" py-5 overflow-hidden whitespace-nowrap border-t border-black/10 dark:border-white/25 mt-10 dark:text-white">
+                <div class="w-full h-full mx-auto px-5 max-w-screen-md">
+                    <div class="h-full grid grid-cols-1 sm:grid-cols-2 gap-3">
+                        <div class="order-2 sm:order-1 flex flex-col items-center justify-center sm:items-start">
+                            <div class="legal">
+                                <a href="/legal/terms"
+                                    class="text-current hover:text-black dark:hover:text-white transition-colors duration-300 ease-in-out">Terms
+                                </a>
+                                |
+                                <a href="/legal/privacy"
+                                    class="text-current hover:text-black dark:hover:text-white transition-colors duration-300 ease-in-out">Privacy
+                                </a>
+                            </div>
+                            <div class="text-sm mt-2">&copy;2024 | All rights reserved
+                            </div>
+                        </div>
+                        <div class="order-1 sm:order-2 flex justify-center sm:justify-end">
+                            <div class="flex flex-wrap gap-1 items-center justify-center">
+                                <a href="mailto:ammarithm@gmail.com" target="_blank" aria-label="Ammar Dev on Email"
+                                    class="group size-10 rounded-full p-2 items-center justify-center hover:bg-black/5 dark:hover:bg-white/20  blend">
+                                    <svg
+                                        class="size-full fill-current group-hover:fill-black group-hover:dark:fill-white blend">
+                                        <use href="../svg/social.svg#email"></use>
+                                    </svg>
+                                </a>
+                                <a href="https://www.instagram.com/ammaricano" target="_blank"
+                                    aria-label="Ammar Dev on Instagram"
+                                    class="group size-10 rounded-full p-2 items-center justify-center hover:bg-black/5 dark:hover:bg-white/20  blend">
+                                    <svg
+                                        class="size-full fill-current group-hover:fill-black group-hover:dark:fill-white blend left-5">
+                                        <use href="../svg/social.svg#instagram"></use>
+                                    </svg>
+                                </a>
+                                <a href="https://www.facebook.com/cara.sudar.5?mibextid=ZbWKwL" target="_blank" aria-label="Ammar Dev on Facebook"
+                                    class="group size-10 rounded-full p-2 items-center justify-center hover:bg-black/5 dark:hover:bg-white/20  blend">
+                                    <svg
+                                        class="size-full fill-current group-hover:fill-black group-hover:dark:fill-white blend stroke-current stroke-2">
+                                        <use href="../svg/social.svg#facebook"></use>
+                                    </svg>
+                                </a>
+                                <a href="discordapp.com/users/932138991728345129" target="_blank"
+                                    aria-label="Ammar Dev on Discord"
+                                    class="group size-10 rounded-full p-2 items-center justify-center hover:bg-black/5 dark:hover:bg-white/20  blend">
+                                    <svg
+                                        class="size-full fill-current group-hover:fill-black group-hover:dark:fill-white blend stroke-current stroke-2">
+                                        <use href="../svg/social.svg#discord"></use>
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </footer>
+    <script>
+        function goBackToTop(event) {
+            event.preventDefault()
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            })
+        }
+
+        function inintializeBackToTop() {
+            const backToTop = document.getElementById("back-to-top")
+            backToTop?.addEventListener("click", goBackToTop)
+        }
+
+        document.addEventListener("astro:after-swap", inintializeBackToTop)
+        inintializeBackToTop()
+    </script>
+    </div>
+    </footer>
+</body>
+
+</html>
