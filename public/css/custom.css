@@ -140,6 +140,9 @@ article img {
     height: 100%
 }
 
+.dark\:bg-black\/\[0\.3\]:is(.dark *) {
+    background-color: rgb(0 0 0 / 0.3);
+  }
 
 .dark\:block:is(.dark *) {
     display: block
